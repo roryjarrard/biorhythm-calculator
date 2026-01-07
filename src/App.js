@@ -19,6 +19,10 @@ function App() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        {Boolean(dob) &&
+          <BiorhythmCard dob={dob} targetDate={targetDate} />
+        }
+
         <IonList>
 
           <IonItem>
@@ -33,7 +37,6 @@ function App() {
 
         </IonList>
 
-        <BiorhythmCard dob={dob} targetDate={targetDate} />
 
       </IonContent>
     </IonApp>
