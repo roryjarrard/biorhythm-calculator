@@ -2,13 +2,14 @@ import { IonApp, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, Io
 import { useState } from 'react'
 
 import BiorhythmCard from './components/BiorhythmCard'
+import { useStoredState } from './lib/hooks/hooks'
 
 const getTodayDateString = () => {
   return new Date().toISOString().split('T')[0]
 }
 
 function App() {
-  const [dob, setDob] = useState('')
+  const [dob, setDob] = useStoredState('birthDate', '')
   const [targetDate, setTargetDate] = useState(getTodayDateString())
 
   return (
