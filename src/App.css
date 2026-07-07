@@ -1,4 +1,15 @@
+.app-toolbar {
+  --background: #183d68;
+  --color: #ffffff;
+}
+
 @media (min-width: 768px) {
+  .app-toolbar {
+    --padding-start: 32px;
+    --padding-end: 32px;
+  }
+
+
   .page-content {
     max-width: 480px;
     margin: 0 auto;
