@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import BiorhythmCard from './components/BiorhythmCard'
 import { useStoredState } from './lib/hooks/hooks'
+import './App.css'
 
 const getTodayDateString = () => {
   return new Date().toISOString().split('T')[0]
@@ -20,25 +21,25 @@ function App() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        {Boolean(dob) &&
-          <BiorhythmCard dob={dob} targetDate={targetDate} />
-        }
+        <div className="page-content">
+          {Boolean(dob) &&
+            <BiorhythmCard dob={dob} targetDate={targetDate} />
+          }
 
-        <IonList>
+          <IonList>
 
-          <IonItem>
-            <IonLabel position="stacked">Birth Date</IonLabel>
-            <IonInput placeholder="Enter your date of birth" type="date" value={dob} onIonChange={(e) => setDob(e.detail.value)}></IonInput>
-          </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Birth Date</IonLabel>
+              <IonInput placeholder="Enter your date of birth" type="date" value={dob} onIonChange={(e) => setDob(e.detail.value)}></IonInput>
+            </IonItem>
 
-          <IonItem>
-            <IonLabel position="stacked">Target Date</IonLabel>
-            <IonInput placeholder="Enter your target date" type="date" value={targetDate} onIonChange={(e) => setTargetDate(e.detail.value)}></IonInput>
-          </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Target Date</IonLabel>
+              <IonInput placeholder="Enter your target date" type="date" value={targetDate} onIonChange={(e) => setTargetDate(e.detail.value)}></IonInput>
+            </IonItem>
 
-        </IonList>
-
-
+          </IonList>
+        </div>
       </IonContent>
     </IonApp>
   )
