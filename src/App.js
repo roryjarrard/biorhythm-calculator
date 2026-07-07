@@ -1,4 +1,4 @@
-import { IonApp, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/react'
+import { IonApp, IonContent, IonDatetime, IonDatetimeButton, IonHeader, IonItem, IonLabel, IonList, IonModal, IonTitle, IonToolbar } from '@ionic/react'
 import { useState } from 'react'
 
 import BiorhythmCard from './components/BiorhythmCard'
@@ -30,13 +30,29 @@ function App() {
 
             <IonItem>
               <IonLabel position="stacked">Birth Date</IonLabel>
-              <IonInput placeholder="Enter your date of birth" type="date" value={dob} onIonChange={(e) => setDob(e.detail.value)}></IonInput>
+              <IonDatetimeButton datetime="dob-datetime"></IonDatetimeButton>
             </IonItem>
+            <IonModal keepContentsMounted={true} className="date-picker-modal">
+              <IonDatetime
+                id="dob-datetime"
+                presentation="date"
+                value={dob || undefined}
+                onIonChange={(e) => setDob(e.detail.value?.split('T')[0] ?? '')}
+              ></IonDatetime>
+            </IonModal>
 
             <IonItem>
               <IonLabel position="stacked">Target Date</IonLabel>
-              <IonInput placeholder="Enter your target date" type="date" value={targetDate} onIonChange={(e) => setTargetDate(e.detail.value)}></IonInput>
+              <IonDatetimeButton datetime="target-datetime"></IonDatetimeButton>
             </IonItem>
+            <IonModal keepContentsMounted={true} className="date-picker-modal">
+              <IonDatetime
+                id="target-datetime"
+                presentation="date"
+                value={targetDate}
+                onIonChange={(e) => setTargetDate(e.detail.value?.split('T')[0] ?? getTodayDateString())}
+              ></IonDatetime>
+            </IonModal>
 
           </IonList>
         </div>

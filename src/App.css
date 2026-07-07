@@ -3,10 +3,24 @@
   --color: #ffffff;
 }
 
+.date-picker-modal ion-datetime {
+  --background: #ffffff;
+}
+
+.page-content ion-item ion-label[position="stacked"] {
+  margin-bottom: 8px;
+}
+
 @media (min-width: 768px) {
   .app-toolbar {
     --padding-start: 32px;
     --padding-end: 32px;
+  }
+
+  .date-picker-modal {
+    --width: 320px;
+    --height: 420px;
+    --border-radius: 8px;
   }
 
 
@@ -18,7 +32,7 @@
   .page-content ion-item {
     --padding-top: 4px;
     --padding-bottom: 4px;
-    --min-height: 40px;
+    --min-height: 56px;
   }
 
   .page-content ion-list {
